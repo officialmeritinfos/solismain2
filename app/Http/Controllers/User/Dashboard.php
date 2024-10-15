@@ -24,7 +24,16 @@ class Dashboard extends Controller
             'web'=>$web,
             'potentialProfit'=>Investment::where(['user'=>$user->id,'status'=>4])->sum('expectedReturns'),
             'liveProfit'=>Investment::where(['user'=>$user->id,'status'=>4])->sum('currentProfit'),
-            'investments'=>Investment::where(['user'=>$user->id])->limit(5)->get()
+            'investments'=>Investment::where(['user'=>$user->id])->limit(5)->get(),
+            'pendingDeposit'=>Investment::where([
+                'user'=>$user->id,'status'=>2
+            ])->sum('amount'),
+            'completedInvestment'=>Investment::where([
+                'user'=>$user->id,'status'=>1
+            ])->sum('amount'),
+            'ongoingInvestment'=>Investment::where([
+                'user'=>$user->id,'status'=>4
+            ])->sum('amount'),
         ];
 
         return view('user.dashboard',$dataView);

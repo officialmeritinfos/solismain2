@@ -32,6 +32,24 @@
                         </h2>
                         <div class="row mt-3">
                             <div class="col-md-3">
+                                <p class="text-muted">Ongoing Investment</p>
+                                <h5 class="font-weight-bold">
+                                    ${{number_format($ongoingInvestment,2)}}
+                                </h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="text-muted">Pending Deposit</p>
+                                <h5 class="font-weight-bold">
+                                    ${{number_format($pendingDeposit,2)}}
+                                </h5>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="text-muted">Completed Investment</p>
+                                <h5 class="font-weight-bold">
+                                    ${{number_format($completedInvestment,2)}}
+                                </h5>
+                            </div>
+                            <div class="col-md-3">
                                 <p class="text-muted">Book Balance</p>
                                 <h5 class="font-weight-bold">
                                     ${{number_format($potentialProfit,2)}}
@@ -53,7 +71,7 @@
                             <a href="{{url('account/withdrawals')}}" class="btn btn-sm btn-outline-warning mr-1">
                                 <i class="fa fa-download"></i> Withdraw
                             </a>
-                            <a href="transfer" class="btn btn-sm btn-outline-primary d-none d-md-block">
+                            <a href="{{url('account/transfer')}}" class="btn btn-sm btn-outline-primary d-none d-md-block">
                                 <i class="fa fa-exchange"></i> Transfer
                             </a>
                         </div>
